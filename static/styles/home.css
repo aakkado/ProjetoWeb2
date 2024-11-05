@@ -1,0 +1,214 @@
+/* Folha de estilos da página home da aplicação para aluguel de espaços para ongs */
+/* A aplicação deverá ser responsível e possuir recursos de acessibilidade */
+/* Conteúdo da página home:
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" href=".static/styles/home.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.jsp">Home</a></li>
+                <li><a href="ongs.jsp">ONGs</a></li>
+                <li><a href="sobre.jsp">Sobre</a></li>
+                <li><a href="contato.jsp">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Alugue espaços para ONGs</h1>
+            <p>Encontre espaços para alugar para ONGs em sua cidade</p>
+            <a href="ongs.jsp">Ver ONGs</a>
+        </section>
+    </main>
+    <footer>
+        <p>Alugue espaços para ONGs</p>
+    </footer>
+</html>
+*/
+/* Estilização da home*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #b9d1ba;
+}
+
+header {
+    background-color: #132614;
+    color: white;
+    padding: 16px;
+}
+/* alterar o nav de maneira a não consumir o espaço da imagem da logo 
+
+<body>
+    <header>
+        <img src="./static/images/logo.png" alt="Logo da ONG Natureza Viva">
+        <nav>
+            <ul>
+                <li><a href="./login.jsp">Login</a></li>
+                <li><a href="./register.jsp">Registrar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+*/
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #ca9db0;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    text-align: center;
+}
+
+a {
+    background-color: #132614;
+    color: #ca9db0;
+    padding: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #555;
+}
+
+/* manter o footer sempre ao final da página */
+footer {
+    background-color: #132614;
+    color: #ca9db0;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilizar a logo (3233 x 2758 pixels) que está presente no header de maneira que ela caiba na página
+<header>
+    <img src="./static/images/logo.png" alt="Logo da ONG Natureza Viva">
+</header>
+*/
+/* Estilização da logo */
+header img {
+    width: 5%;
+    height: auto;
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Hide the images by default */
+.mySlides {
+    max-height: 500px;
+    margin: auto;
+    display: none;
+}
+
+/* Ajuste para centralizar as setas verticalmente */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste para centralizar exatamente no meio */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona fundo semitransparente para melhor visibilidade */
+  }
+  
+  /* Alinhamento específico para cada seta */
+  .prev {
+    left: 10px; /* Define a posição à esquerda */
+  }
+  
+  .next {
+    right: 10px; /* Define a posição à direita */
+  }
+  
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
