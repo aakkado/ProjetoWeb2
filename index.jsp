@@ -32,33 +32,28 @@
         </section>
         <%-- Image carousel (slider) de imagens de exemplo de espaços (espaco1.jpg, espaco2.jpg, espaco3.webp, espaco4.avif) --%>
         <%-- para fazer o slider funcionar é preciso de js? --%>
-        <script src="./static/scripts/slider.js"></script>
         <section>
             <div class="slideshow-container">
 
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
-                  <div class="numbertext">1 / 4</div>
                   <img src="./static/images/espacos/espaco1.jpg" style="width:70%">
                   <div class="text">Caption Text</div>
                 </div>
               
                 <div class="mySlides fade">
-                  <div class="numbertext">2 / 4</div>
                   <img src="./static/images/espacos/espaco2.jpg" style="width:70%">
                   <div class="text">Caption Two</div>
                 </div>
               
                 <div class="mySlides fade">
-                  <div class="numbertext">3 / 4</div>
                   <img src="./static/images/espacos/espaco3.webp" style="width:70%">
                   <div class="text">Caption Three</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">4 / 4</div>
                     <img src="./static/images/espacos/espaco4.avif" style="width:70%">
-                    <div class="text">Caption Three</div>
+                    <div class="text">Caption Four</div>
                   </div>
               
                 <!-- Next and previous buttons -->
@@ -79,5 +74,6 @@
     <footer>
         <p>ONG Natureza Viva</p>
     </footer>
+    <script src="./static/scripts/slider.js"></script>
 </body>
 </html>
