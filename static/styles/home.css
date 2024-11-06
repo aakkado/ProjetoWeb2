@@ -10,20 +10,6 @@ header {
     color: white;
     padding: 16px;
 }
-/* alterar o nav de maneira a não consumir o espaço da imagem da logo 
-
-<body>
-    <header>
-        <img src="./static/images/logo.png" alt="Logo da ONG Natureza Viva">
-        <nav>
-            <ul>
-                <li><a href="./login.jsp">Login</a></li>
-                <li><a href="./register.jsp">Registrar</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-*/
 
 nav ul {
     list-style-type: none;

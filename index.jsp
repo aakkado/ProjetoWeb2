@@ -1,7 +1,3 @@
-<%-- Home page da aplicação para aluguel de espaços para a ong natureza viva --%>
-<%-- A aplicação deverá ser responsível e contar com acessibilidade --%>
-<%-- Inserir a logo (./static/images/logo.png) no icone da página e posicionalo no header e colocar opções de acessibilidade (ex: alt) --%>
-<%-- O arquivo de estilo encontra-se em ./static/styles/home.css --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,8 +26,6 @@
             <p>Alugue um espaço para a sua festa e ajude a natureza</p>
             <a href="./login.jsp">Alugar</a>
         </section>
-        <%-- Image carousel (slider) de imagens de exemplo de espaços (espaco1.jpg, espaco2.jpg, espaco3.webp, espaco4.avif) --%>
-        <%-- para fazer o slider funcionar é preciso de js? --%>
         <section>
             <div class="slideshow-container">
 
