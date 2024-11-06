@@ -103,3 +103,14 @@ footer {
 .hidden {
     display: none;
 }
+
+a {
+    background-color: #132614;
+    color: #ca9db0;
+    padding: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #555;
+}

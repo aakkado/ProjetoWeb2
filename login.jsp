@@ -13,10 +13,12 @@
     <title>Login</title>
     <link rel="stylesheet" href="static/styles/login.css">
     <link rel="icon" href="./static/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <img src="static/images/logoWithoutBackground.png" alt="Logo da ONG Natureza Viva">
+        <a href="./index.jsp"><i class="fas fa-home"></i> Home</a>
     </header>
     <main>
         <h1>Login</h1>
