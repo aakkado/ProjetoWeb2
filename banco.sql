@@ -1,14 +1,14 @@
 -- Criação da tabela de usuários
 CREATE TABLE usuarios (
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
+    nome VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL
 );
 
 -- Criação da tabela de espaços
 CREATE TABLE espacos (
     espaco_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome_espaco VARCHAR(100) NOT NULL,
+    nome_espaco VARCHAR(100) NOT NULL UNIQUE,
     valor_aluguel DECIMAL(10, 2) NOT NULL,
     local VARCHAR(150),
     tamanho VARCHAR(50)
