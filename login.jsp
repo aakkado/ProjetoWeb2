@@ -21,7 +21,8 @@
         <a href="./index.jsp"><i class="fas fa-home"></i> Home</a>
     </header>
     <main>
-        <h1>Login</h1>
+        <h1 id="loginLabel">Login</h1>
+        <h1 id="signupLabel" class="hidden">Sign Up</h1>
         <form id="loginForm" action="login.jsp" method="post">
             <label for="username">Usuário:</label>
             <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
@@ -52,13 +53,6 @@
     <footer>
         <p>ONG Natureza Viva</p>
     </footer>
-    <script>
-        function toggleForms() {
-            var loginForm = document.getElementById('loginForm');
-            var registerForm = document.getElementById('registerForm');
-            loginForm.classList.toggle('hidden');
-            registerForm.classList.toggle('hidden');
-        }
-    </script>
+    <script src="static/scripts/toggleForms.js"></script> <!-- Chama o arquivo JS externo -->
 </body>
 </html>
