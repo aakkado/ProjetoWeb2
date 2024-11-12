@@ -23,7 +23,7 @@
     <main>
         <h1 id="loginLabel">Login</h1>
         <h1 id="signupLabel" class="hidden">Sign Up</h1>
-        <form id="loginForm" action="login.jsp" method="post">
+        <form id="loginForm" action="realizaLogin.jsp" method="post">
             <label for="username">Usuário:</label>
             <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
             <br>
