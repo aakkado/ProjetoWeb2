@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="./login.jsp">Login</a></li>
-                <li><a href="./register.jsp">Registrar</a></li>
+                <li><a href="./login.jsp?action=signup">Registrar</a></li>
             </ul>
         </nav>
     </header>
@@ -32,23 +31,19 @@
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                   <img src="./static/images/espacos/espaco1.jpg" style="width:70%">
-                  <div class="text">Caption Text</div>
                 </div>
               
                 <div class="mySlides fade">
                   <img src="./static/images/espacos/espaco2.jpg" style="width:70%">
-                  <div class="text">Caption Two</div>
                 </div>
               
                 <div class="mySlides fade">
                   <img src="./static/images/espacos/espaco3.webp" style="width:70%">
-                  <div class="text">Caption Three</div>
                 </div>
 
                 <div class="mySlides fade">
                     <img src="./static/images/espacos/espaco4.avif" style="width:70%">
-                    <div class="text">Caption Four</div>
-                  </div>
+                </div>
               
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

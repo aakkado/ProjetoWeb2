@@ -38,7 +38,7 @@ header nav ul li a {
 }
 
 main {
-    background-color: #8f6d59; /* Cor de fundo do container */
+    background-color: #f0f0f098; /* Cor de fundo do container */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -90,7 +90,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #132614;
+    background-color: #444;
 }
 
 footer {
@@ -199,4 +199,85 @@ a:hover {
 
 .hidden {
     display: none;
+}
+/* Altera o estilo apenas das labels 'Usuário' e 'Senha' */
+form label[for="username"], 
+form label[for="password"] {
+    font-weight: bold; /* Deixa as labels em negrito */
+    font-size: 18px;   /* Ajuste o tamanho da fonte se necessário */
+}
+/* Estilo para o formulário de login */
+#loginForm {
+    background-size: auto; /* Mantém o tamanho original da imagem */
+    background-position: center center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    padding: 40px; /* Aumenta o espaçamento interno */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar o formulário */
+    max-width: 400px; /* Define largura máxima do formulário */
+    margin: 50px auto; /* Centraliza o formulário */
+    color: white;
+    font-family: Arial, sans-serif;
+}
+#loginForm::before {
+    content: ''; /* Cria um pseudo-elemento vazio */
+    position: absolute; /* Posiciona em relação ao elemento pai */
+    top: 0; /* Preenche toda a área do elemento */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/logoFundoLogin.png'); /* Caminho da imagem */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    background-position: center center; /* Centraliza a imagem */
+    background-attachment: fixed; /* Imagem fixa durante o scroll */
+    opacity: 0.3; /* Opacidade da imagem de fundo (ajuste conforme necessário) */
+    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+}
+
+#loginForm h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+
+#loginForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#loginForm form label {
+    text-align: left;
+    color: #fff;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo escura e semi-transparente para inputs */
+    color: white; /* Cor do texto dos inputs */
+}
+
+#loginForm input[type="text"]::placeholder,
+#loginForm input[type="password"]::placeholder {
+    color: #ccc; /* Cor do placeholder */
+}
+
+#loginForm button {
+    padding: 10px;
+    background-color: #132614; /* Cor do botão */
+    color: #ca9db0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#loginForm button:hover {
+    background-color: #444; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho do botão */
+    transition: all 0.3s ease; /* Transição suave para todas as propriedades */
 }
