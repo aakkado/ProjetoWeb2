@@ -112,6 +112,7 @@
                 </select>
             </div>
             <button type="submit">Confirmar Aluguel</button>
+            <a href="./alugel.jsp">Ver Alugueis</a>
         </form>
 
         <%
