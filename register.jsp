@@ -22,9 +22,9 @@
     </header>
     <main>
         <h1 id="loginLabel" class="hidden">Login</h1>
-        <h1 id="signupLabel">Sign Up</h1>
+        <h1 id="signupLabel">Criar conta</h1>
         <form id="registerForm" action="realizaCadastro.jsp" method="post">
-            <label for="newUsername">Usuário:</label>
+            <label for="newUsername">Nome de usuário:</label>
             <input type="text" id="newUsername" name="newUsername" placeholder="Nome de usuário" required>
             <br>
             <label for="newPassword">Senha:</label>
@@ -33,12 +33,12 @@
             <label for="confirmPassword">Confirme sua senha:</label>
             <input type="password" id="newPassword" name="confirmPassword" placeholder="Digite novamente" required>
             <br>
-            <button type="submit">Registrar</button>
+            <button type="submit">Cadastrar</button>
             <button type="button" onclick="toggleForms()">Voltar ao Login</button>
         </form>
     </main>
     <footer>
-        <p>ONG Natureza Viva</p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">ONG Natureza Viva</strong> <span>Todos os direitos reservados. Fale conosco: atendimento@naturezaviva.org</span></p>
     </footer>
     <script src="static/scripts/toggleForms.js"></script>
 </body>

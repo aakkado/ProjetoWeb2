@@ -1,14 +1,11 @@
 function toggleForms() {
     if (document.title === "Login") {
-        // Redireciona para a página de registro
-        window.location.href = 'cadastro.jsp?action=signup';
+        window.location.href = 'register.jsp?action=signup';
     } else {
-        // Redireciona para a página de login
         window.location.href = 'login.jsp?action=login';
     }
 }
 
-// Função para obter parâmetros da URL
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -16,7 +13,6 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-// Executa uma ação específica quando a página é carregada, dependendo da URL
 window.onload = function() {
     if (getUrlParameter('action') === 'signup') {
         document.title = "Sign Up";

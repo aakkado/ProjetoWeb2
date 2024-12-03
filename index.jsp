@@ -15,14 +15,15 @@
         <nav>
             <ul>
                 <li><a href="./login.jsp">Login</a></li>
-                <li><a href="./cadastro.jsp">Criar conta</a></li>
+                <li><a href="./register.jsp">Criar conta</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h1>Alugue um espaço para a sua festa e ajude a natureza</h1>
-            <p>Alugue um espaço para a sua festa e ajude a natureza</p>
+            <h1>ONG Natureza Viva</h1>
+            <h4>Conectando tecnologia e sustentabilidade para um mundo mais verde e consciente.</h2>
+            <p>Alugue um espaço para a sua festa e ajude a natureza!</p>
             <a href="./login.jsp">Alugar</a>
         </section>
         <section>
@@ -56,7 +57,7 @@
         </section>
     </main>
     <footer>
-        <p>ONG Natureza Viva</p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">ONG Natureza Viva</strong> <span>Todos os direitos reservados. Fale conosco: atendimento@naturezaviva.org</span></p>
     </footer>
     <script src="./static/scripts/slider.js"></script>
 </body>

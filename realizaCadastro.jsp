@@ -16,7 +16,7 @@
                 window.location.href = 'login.jsp';
             } else {
                 alert('Erro: ' + message);
-                window.location.href = 'cadastro.jsp';
+                window.location.href = 'register.jsp';
             }
         }
     </script>

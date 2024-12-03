@@ -18,7 +18,7 @@
 <body>
     <header>
         <img src="static/images/logoWithoutBackground.png" alt="Logo da ONG Natureza Viva">
-        <a href="./index.jsp"><i class="fas fa-home"></i> Home</a>
+        <a href="./index.jsp"><i class="fas fa-home"></i>Página inicial</a>
     </header>
     <main>
         <h1 id="loginLabel">Login</h1>
@@ -30,8 +30,8 @@
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password" placeholder="Senha" required>
             <br>
-            <button type="submit">Login</button>
-            <button type="button" onclick="toggleForms()">Criar Usuário</button>
+            <button type="submit">Entrar</button>
+            <button type="button" onclick="toggleForms()">Ainda não tem conta? Crie agora!</button>
         </form>
         <%
             String username = request.getParameter("username");
@@ -39,7 +39,7 @@
         %>
     </main>
     <footer>
-        <p>ONG Natureza Viva</p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">ONG Natureza Viva</strong> <span>Todos os direitos reservados. Fale conosco: atendimento@naturezaviva.org</span></p>
     </footer>
     <script src="static/scripts/toggleForms.js"></script> 
 </body>

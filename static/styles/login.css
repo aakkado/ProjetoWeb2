@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #b9d1ba; /* Cor de fundo suave */
+    background-color: #b9d1ba; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,7 +13,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #132614; /* Cor de fundo do cabeçalho */
+    background-color: #132614; 
     color: #ca9db0;
 }
 
@@ -38,13 +38,13 @@ header nav ul li a {
 }
 
 main {
-    background-color: #f0f0f098; /* Cor de fundo do container */
+    background-color: #f0f0f098; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
-    margin: auto; /* Centraliza o main verticalmente */
+    margin: auto; 
 }
 
 main h1 {
@@ -81,7 +81,7 @@ input {
 
 form button {
     padding: 10px;
-    background-color: #132614; /* Cor do botão */
+    background-color: #132614;
     color: #ca9db0;
     border: none;
     border-radius: 5px;
@@ -96,7 +96,7 @@ form button:hover {
 footer {
     text-align: center;
     padding: 10px 20px;
-    background-color: #132614; /* Cor de fundo do rodapé */
+    background-color: #132614; 
     color: #ca9db0;
 }
 
@@ -114,38 +114,38 @@ a {
 a:hover {
     background-color: #555;
 }
-/* Altera o estilo apenas das labels 'Usuário' e 'Senha' */
+
 form label[for="username"], 
 form label[for="password"] {
-    font-weight: bold; /* Deixa as labels em negrito */
-    font-size: 18px;   /* Ajuste o tamanho da fonte se necessário */
+    font-weight: bold; 
+    font-size: 18px;   
 }
-/* Estilo para o formulário de login */
+
 #loginForm {
-    background-size: auto; /* Mantém o tamanho original da imagem */
-    background-position: center center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita a repetição da imagem */
-    padding: 40px; /* Aumenta o espaçamento interno */
+    background-size: auto; 
+    background-position: center center;
+    background-repeat: no-repeat; 
+    padding: 40px; 
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar o formulário */
-    max-width: 400px; /* Define largura máxima do formulário */
-    margin: 50px auto; /* Centraliza o formulário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 400px; 
+    margin: 50px auto; 
     color: white;
     font-family: Arial, sans-serif;
 }
 #loginForm::before {
-    content: ''; /* Cria um pseudo-elemento vazio */
-    position: absolute; /* Posiciona em relação ao elemento pai */
-    top: 0; /* Preenche toda a área do elemento */
+    content: ''; 
+    position: absolute; 
+    top: 0; 
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../images/logoFundoLogin.png'); /* Caminho da imagem */
-    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
-    background-position: center center; /* Centraliza a imagem */
-    background-attachment: fixed; /* Imagem fixa durante o scroll */
-    opacity: 0.3; /* Opacidade da imagem de fundo (ajuste conforme necessário) */
-    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+    background-image: url('../images/logoFundoLogin.png'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    opacity: 0.3; 
+    z-index: -1; 
 }
 
 #loginForm h1 {
@@ -170,18 +170,18 @@ form label[for="password"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo escura e semi-transparente para inputs */
-    color: white; /* Cor do texto dos inputs */
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white; 
 }
 
 #loginForm input[type="text"]::placeholder,
 #loginForm input[type="password"]::placeholder {
-    color: #ccc; /* Cor do placeholder */
+    color: #ccc;
 }
 
 #loginForm button {
     padding: 10px;
-    background-color: #132614; /* Cor do botão */
+    background-color: #132614; 
     color: #ca9db0;
     border: none;
     border-radius: 5px;
@@ -190,8 +190,72 @@ form label[for="password"] {
 }
 
 #loginForm button:hover {
-    background-color: #444; /* Cor de fundo ao passar o mouse */
-    color: #fff; /* Cor do texto ao passar o mouse */
-    transform: scale(1.05); /* Leve aumento no tamanho do botão */
-    transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+    background-color: #444; 
+    color: #fff; 
+    transform: scale(1.05);
+    transition: all 0.3s ease; 
 }
+
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about .content h3 {
+    font-weight: 700;
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+  
+  .about .content p {
+    margin-bottom: 30px;
+  }
+  
+  .about .content .about-btn {
+    padding: 8px 30px 9px 30px;
+    color: var(--accent-color);
+    border-radius: 50px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--accent-color);
+  }
+  
+  .about .content .about-btn i {
+    font-size: 16px;
+    padding-left: 5px;
+  }
+  
+  .about .content .about-btn:hover {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+  }
+  
+  .about .icon-box i {
+    font-size: 40px;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+  }
+  
+  .about .icon-box h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+  }
+  
+  .about .icon-box h4 a {
+    color: var(--heading-color);
+    transition: 0.3s;
+  }
+  
+  .about .icon-box p {
+    font-size: 15px;
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+    margin-bottom: 0;
+  }
+  
+  .about .icon-box:hover h4 a {
+    color: var(--accent-color);
+  }
+  
