@@ -146,6 +146,7 @@
             </div>
             <button type="submit">Confirmar Aluguel</button>
             <input type="hidden" id="calculatedValue" name="valorFinal">
+            <a href="./alugel.jsp">Ver Alugueis</a>
         </form>
         <%
             String message = "";
