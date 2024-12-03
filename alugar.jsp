@@ -9,20 +9,61 @@
     <link rel="stylesheet" href="static/styles/alugar.css">
     <link rel="icon" href="./static/images/logo.png">
     <script>
-        // Função para exibir e esconder a mensagem com transição suave
         function hideMessage() {
             const messageElement = document.getElementById("message");
             if (messageElement) {
                 messageElement.style.opacity = '1';
                 setTimeout(() => {
                     messageElement.style.opacity = '0';
-                }, 2000); // Exibe a mensagem por 2 segundos
-
+                }, 2000);
                 setTimeout(() => {
                     messageElement.style.display = 'none';
-                }, 3000); // Esconde após a transição (3 segundos no total)
+                }, 3000);
             }
         }
+
+        function updateDetails() {
+            const espacoSelect = document.getElementById("espacoId");
+            const selectedOption = espacoSelect.options[espacoSelect.selectedIndex];
+            const valorDiario = selectedOption.getAttribute("data-valor");
+            const local = selectedOption.getAttribute("data-local");
+            const tamanho = selectedOption.getAttribute("data-tamanho");
+            document.getElementById("local").value = local || "";
+            document.getElementById("tamanho").value = tamanho || "";
+            document.getElementById("valorDiario").value = valorDiario || "";
+            calculateFinalValue();
+        }
+
+        function calculateFinalValue() {
+            // Recuperar e converter o valor diário para número
+            const valorDiario = parseFloat(document.getElementById("valorDiario").value.trim()) || 0;
+            const inicioStr = document.getElementById("periodoInicio").value;
+            const fimStr = document.getElementById("periodoFim").value;
+
+            if (inicioStr && fimStr) {
+                const inicio = new Date(inicioStr);
+                const fim = new Date(fimStr);
+
+                if (fim > inicio) {
+                    const diffTime = fim - inicio; // Diferença em milissegundos
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Converter para dias
+
+                    const valorFinal = valorDiario * diffDays;
+
+                    // Atualizar os campos de saída
+                    document.getElementById("valorFinal").value = `R$ ${valorFinal.toFixed(2)}`;
+                    document.getElementById("calculatedValue").value = valorFinal.toFixed(2);
+                } else {
+                    document.getElementById("valorFinal").value = "Período inválido";
+                    document.getElementById("calculatedValue").value = "";
+                }
+            } else {
+                document.getElementById("valorFinal").value = "Preencha os campos de data";
+                document.getElementById("calculatedValue").value = "";
+            }
+        }
+
+
     </script>
 </head>
 <body onload="hideMessage()">
@@ -32,76 +73,68 @@
     </header>
     <main>
         <h1>Realizar Aluguel</h1>
-        
-        <form id="rentalForm" action="aluguel.jsp" method="post">
+
+        <form id="rentalForm" action="alugar.jsp" method="post">
             <div>
                 <label for="espacoId">Espaço:</label>
-                <select id="espacoId" name="espacoId" required aria-required="true">
+                <select id="espacoId" name="espacoId" required aria-required="true" onchange="updateDetails()">
                     <option value="">Selecione um espaço</option>
+                    <%@ include file="conectar.jsp" %>
                     <%
-                        Connection con = null;
                         PreparedStatement pst = null;
                         ResultSet rs = null;
-                
                         try {
-                            // Incluir conexão ao banco
-                            %>
-                            <jsp:include page="conectar.jsp" />
-                            <%
-                            con = (Connection) request.getAttribute("con");
-                            if (con != null) {
-                                out.println("Conexão com o banco de dados estabelecida.<br>");
-                                String query = 
-                                    "SELECT e.espaco_id, e.nome_espaco, e.valor_aluguel, e.local, e.tamanho " +
-                                    "FROM espacos e " +
-                                    "LEFT JOIN alugueis a ON e.espaco_id = a.espaco_id " +
-                                    "WHERE a.espaco_id IS NULL";
-                
-                                pst = con.prepareStatement(query);
-                                out.println("Query preparada: " + query + "<br>");
-                                rs = pst.executeQuery();
-                                boolean hasResults = false; // Para verificar se há resultados
-                
-                                while (rs.next()) {
-                                    hasResults = true;
-                                    int espacoId = rs.getInt("espaco_id");
-                                    String nomeEspaco = rs.getString("nome_espaco");
-                                    double valorAluguel = rs.getDouble("valor_aluguel");
-                                    String local = rs.getString("local");
-                                    String tamanho = rs.getString("tamanho");
-                
-                                    out.println("<option value='" + espacoId + "'>" 
-                                        + nomeEspaco + " - " + local + " - Tamanho: " 
-                                        + tamanho + " - Valor: R$ " + valorAluguel + "</option>");
-                                }
-                
-                                if (!hasResults) {
-                                    out.println("<option value=''>Nenhum espaço disponível</option>");
-                                }
-                            } else {
-                                out.println("Conexão com o banco de dados não foi estabelecida.<br>");
+                            String query = 
+                                "SELECT e.espaco_id, e.nome_espaco, e.valor_aluguel, e.local, e.tamanho " +
+                                "FROM espacos e " +
+                                "LEFT JOIN alugueis a ON e.espaco_id = a.espaco_id " +
+                                "WHERE a.espaco_id IS NULL";
+                            pst = con.prepareStatement(query);
+                            rs = pst.executeQuery();
+                            while (rs.next()) {
+                                int espacoId = rs.getInt("espaco_id");
+                                String nomeEspaco = rs.getString("nome_espaco");
+                                double valorAluguel = rs.getDouble("valor_aluguel");
+                                String local = rs.getString("local");
+                                String tamanho = rs.getString("tamanho");
+                                out.println("<option value='" + espacoId + "' " +
+                                    "data-valor='" + valorAluguel + "' " +
+                                    "data-local='" + local + "' " +
+                                    "data-tamanho='" + tamanho + "'>" +
+                                    nomeEspaco + "</option>");
                             }
                         } catch (Exception e) {
                             out.println("Erro ao buscar espaços: " + e.getMessage() + "<br>");
-                            StringWriter sw = new StringWriter();
-                            PrintWriter pw = new PrintWriter(sw);
-                            e.printStackTrace(pw);
-                            out.println("<pre>" + sw.toString() + "</pre>");
                         } finally {
                             if (rs != null) try { rs.close(); } catch (SQLException ignore) {}
                             if (pst != null) try { pst.close(); } catch (SQLException ignore) {}
-                            if (con != null) try { con.close(); } catch (SQLException ignore) {}
                         }
                     %>
-                </select>                
+                </select>
+            </div>
+            <div>
+                <label for="local">Local:</label>
+                <input type="text" id="local" readonly>
+            </div>
+            <div>
+                <label for="tamanho">Tamanho:</label>
+                <input type="text" id="tamanho" readonly>
+            </div>
+            <div>
+                <label for="valorDiario">Valor Diário:</label>
+                <input type="number" id="valorDiario" readonly>
             </div>
             <div>
                 <label for="periodoInicio">Período de Início:</label>
-                <input type="datetime-local" id="periodoInicio" name="periodoInicio" required aria-required="true">
+                <input type="datetime-local" id="periodoInicio" name="periodoInicio" required aria-required="true" onchange="calculateFinalValue()" oninput="calculateFinalValue()">
             </div>
             <div>
                 <label for="periodoFim">Período de Fim:</label>
-                <input type="datetime-local" id="periodoFim" name="periodoFim" required aria-required="true">
+                <input type="datetime-local" id="periodoFim" name="periodoFim" required aria-required="true" onchange="calculateFinalValue()" oninput="calculateFinalValue()">
+            </div>
+            <div>
+                <label for="valorFinal">Valor Final:</label>
+                <input type="text" id="valorFinal" readonly>
             </div>
             <div>
                 <label for="metodoPagamento">Método de Pagamento:</label>
@@ -112,76 +145,46 @@
                 </select>
             </div>
             <button type="submit">Confirmar Aluguel</button>
+            <input type="hidden" id="calculatedValue" name="valorFinal">
         </form>
-
         <%
             String message = "";
             boolean isSubmitted = "POST".equalsIgnoreCase(request.getMethod());
-
             if (isSubmitted) {
                 String espacoId = request.getParameter("espacoId");
                 String periodoInicio = request.getParameter("periodoInicio");
                 String periodoFim = request.getParameter("periodoFim");
                 String metodoPagamento = request.getParameter("metodoPagamento");
-                int usuarioId = (Integer) session.getAttribute("usuario_id"); // Obtém o ID do usuário da sessão
-
+                String valorFinal = request.getParameter("valorFinal");
+                int usuarioId = (Integer) session.getAttribute("usuario_id");
                 if (espacoId != null && periodoInicio != null && periodoFim != null && metodoPagamento != null) {
                     PreparedStatement pstInsert = null;
                     try {
-                        %>
-                        <jsp:include page="conectar.jsp" />
-                        <%
-                        con = (Connection) request.getAttribute("con");
-                        if (con != null) {
-                            String queryInsert = 
-                                "INSERT INTO alugueis (usuario_id, espaco_id, valor_final, metodo_pagamento, periodo_inicio, periodo_fim) " +
-                                "SELECT ?, e.espaco_id, e.valor_aluguel, ?, ?, ? " +
-                                "FROM espacos e " +
-                                "WHERE e.espaco_id = ?"
-                            ;
-                            pstInsert = con.prepareStatement(queryInsert);
-                            pstInsert.setInt(1, usuarioId);
-                            pstInsert.setString(2, metodoPagamento);
-                            pstInsert.setString(3, periodoInicio);
-                            pstInsert.setString(4, periodoFim);
-                            pstInsert.setInt(5, Integer.parseInt(espacoId));
-
-                            int result = pstInsert.executeUpdate();
-                            if (result > 0) {
-                                message = "Aluguel realizado com sucesso!";
-                            } else {
-                                message = "Erro ao realizar o aluguel.";
-                            }
-                        }
+                        String queryInsert = 
+                            "INSERT INTO alugueis (usuario_id, espaco_id, valor_final, metodo_pagamento, periodo_inicio, periodo_fim) " +
+                            "VALUES (?, ?, ?, ?, ?, ?)";
+                        pstInsert = con.prepareStatement(queryInsert);
+                        pstInsert.setInt(1, usuarioId);
+                        pstInsert.setInt(2, Integer.parseInt(espacoId));
+                        pstInsert.setDouble(3, Double.parseDouble(valorFinal));
+                        pstInsert.setString(4, metodoPagamento);
+                        pstInsert.setString(5, periodoInicio);
+                        pstInsert.setString(6, periodoFim);
+                        int result = pstInsert.executeUpdate();
+                        message = result > 0 ? "Aluguel realizado com sucesso!" : "Erro ao realizar aluguel.";
                     } catch (Exception e) {
-                        message = "Erro ao realizar aluguel: " + e.getMessage();
-                        StringWriter sw = new StringWriter();
-                        PrintWriter pw = new PrintWriter(sw);
-                        e.printStackTrace(pw);
-                        out.println("<pre>" + sw.toString() + "</pre>");
+                        message = "Erro: " + e.getMessage();
                     } finally {
                         if (pstInsert != null) try { pstInsert.close(); } catch (SQLException ignore) {}
-                        if (con != null) try { con.close(); } catch (SQLException ignore) {}
                     }
-                    
-                    session.setAttribute("message", message);
-                    response.sendRedirect("aluguel.jsp");
-                    return;
                 } else {
-                    message = "Por favor, preencha todos os campos.";
+                    message = "Preencha todos os campos!";
                 }
             }
-            
-            message = (String) session.getAttribute("message");
-            session.removeAttribute("message");
         %>
-        
-        <% if (message != null && !message.isEmpty()) { %>
-            <p id="message"><%= message %></p>
-        <% } %>
+        <div id="message" class="<%= message.isEmpty() ? "" : "show" %>">
+            <%= message %>
+        </div>
     </main>
-    <footer>
-        <p>ONG Natureza Viva</p>
-    </footer>
 </body>
 </html>
