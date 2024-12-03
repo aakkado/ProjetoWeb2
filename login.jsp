@@ -23,7 +23,7 @@
     <main>
         <h1 id="loginLabel">Login</h1>
         <h1 id="signupLabel" class="hidden">Sign Up</h1>
-        <form id="loginForm" action="realizaLogin.jsp" method="post">
+        <form id="loginForm" action="validaLogin.jsp" method="post">
             <label for="username">Usuário:</label>
             <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
             <br>
@@ -33,18 +33,6 @@
             <button type="submit">Login</button>
             <button type="button" onclick="toggleForms()">Criar Usuário</button>
         </form>
-
-        <form id="registerForm" action="register.jsp" method="post" class="hidden">
-            <label for="newUsername">Novo Usuário:</label>
-            <input type="text" id="newUsername" name="newUsername" placeholder="Nome de usuário" required>
-            <br>
-            <label for="newPassword">Nova Senha:</label>
-            <input type="password" id="newPassword" name="newPassword" placeholder="Senha" required>
-            <br>
-            <button type="submit">Registrar</button>
-            <button type="button" onclick="toggleForms()">Voltar ao Login</button>
-        </form>
-
         <%
             String username = request.getParameter("username");
             String password = request.getParameter("password");
@@ -53,6 +41,6 @@
     <footer>
         <p>ONG Natureza Viva</p>
     </footer>
-    <script src="static/scripts/toggleForms.js"></script> <!-- Chama o arquivo JS externo -->
+    <script src="static/scripts/toggleForms.js"></script> 
 </body>
 </html>

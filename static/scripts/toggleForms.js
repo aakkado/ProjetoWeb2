@@ -1,23 +1,14 @@
 function toggleForms() {
-    var loginForm = document.getElementById('loginForm');
-    var registerForm = document.getElementById('registerForm');
-    var loginLabel = document.getElementById('loginLabel');
-    var signupLabel = document.getElementById('signupLabel');
-    
-    loginForm.classList.toggle('hidden');
-    registerForm.classList.toggle('hidden');
-    loginLabel.classList.toggle('hidden');
-    signupLabel.classList.toggle('hidden');
-
-    // Alterna o título da página
     if (document.title === "Login") {
-        document.title = "Sign Up";
+        // Redireciona para a página de registro
+        window.location.href = 'cadastro.jsp?action=signup';
     } else {
-        document.title = "Login";
+        // Redireciona para a página de login
+        window.location.href = 'login.jsp?action=login';
     }
 }
 
-// Função para ler os parâmetros da URL
+// Função para obter parâmetros da URL
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -25,9 +16,13 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-// Exibe o formulário de cadastro se o parâmetro action=signup estiver presente
+// Executa uma ação específica quando a página é carregada, dependendo da URL
 window.onload = function() {
     if (getUrlParameter('action') === 'signup') {
-        toggleForms(); // Alterna para o formulário de cadastro
+        document.title = "Sign Up";
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('registerForm').classList.remove('hidden');
+        document.getElementById('loginLabel').classList.add('hidden');
+        document.getElementById('signupLabel').classList.remove('hidden');
     }
 };

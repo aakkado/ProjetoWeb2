@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="./login.jsp">Login</a></li>
-                <li><a href="./login.jsp?action=signup">Registrar</a></li>
+                <li><a href="./cadastro.jsp">Criar conta</a></li>
             </ul>
         </nav>
     </header>
@@ -27,8 +27,6 @@
         </section>
         <section>
             <div class="slideshow-container">
-
-                <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                   <img src="./static/images/espacos/espaco1.jpg" style="width:70%">
                 </div>
@@ -45,13 +43,10 @@
                     <img src="./static/images/espacos/espaco4.avif" style="width:70%">
                 </div>
               
-                <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
               </div>
               <br>
-              
-              <!-- The dots/circles -->
               <div style="text-align:center">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
