@@ -1,8 +1,9 @@
 -- Criação da tabela de usuários
-CREATE TABLE usuarios (
-    usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE, 
+    password VARCHAR(255) NOT NULL,      
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
 
 -- Criação da tabela de espaços
