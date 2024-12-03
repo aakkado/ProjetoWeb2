@@ -52,7 +52,7 @@
             </div>
             <!-- Botão de Cadastrar Espaço acima do botão de Editar Espaços -->
             <button type="submit">Cadastrar Espaço</button>
-            <button id="editSpacesButton" type="button" onclick="window.location.href='editar_espacos.jsp'">Editar Espaços</button>
+            <button id="editSpacesButton" type="button" onclick="window.location.href='editar.jsp'">Editar Espaços</button>
         </form>
         
         <%
