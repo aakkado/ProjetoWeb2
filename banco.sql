@@ -1,7 +1,9 @@
 -- Criação da tabela de usuários
 CREATE TABLE usuarios (
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL UNIQUE,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    tipo_usuario ENUM('comum', 'admin') DEFAULT 'comum',
     senha VARCHAR(255) NOT NULL
 );
 
