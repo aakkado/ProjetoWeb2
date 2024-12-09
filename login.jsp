@@ -17,12 +17,11 @@
 </head>
 <body>
     <header>
-        <img src="static/images/logoWithoutBackground.png" alt="Logo da ONG Natureza Viva">
-        <a href="./index.jsp"><i class="fas fa-home"></i> Home</a>
+     <a href="./index.jsp"><img src="static/images/logoWithoutBackground.png" alt="Logo da ONG Natureza Viva"></a>
     </header>
     <main>
         <h1 id="loginLabel">Login</h1>
-        <h1 id="signupLabel" class="hidden">Sign Up</h1>
+        <h1 id="signupLabel" class="hidden">Cadastro</h1>
         <form id="loginForm" action="realizaLogin.jsp" method="post">
             <label for="username">Usuário:</label>
             <input type="text" id="username" name="username" placeholder="Nome de usuário" required>
