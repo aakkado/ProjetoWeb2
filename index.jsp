@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="mySlides fade">
-                    <img src="./static/images/espacos/espaco4.avif" style="width:70%">
+                    <img src="./static/images/espacos/espaco4.avif" style="width:70%" alt=>
                 </div>
               
                 <!-- Next and previous buttons -->
