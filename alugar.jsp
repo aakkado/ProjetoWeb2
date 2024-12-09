@@ -35,7 +35,6 @@
         }
 
         function calculateFinalValue() {
-            // Recuperar e converter o valor diário para número
             const valorDiario = parseFloat(document.getElementById("valorDiario").value.trim()) || 0;
             const inicioStr = document.getElementById("periodoInicio").value;
             const fimStr = document.getElementById("periodoFim").value;
@@ -51,8 +50,11 @@
                     const valorFinal = valorDiario * diffDays;
 
                     // Atualizar os campos de saída
-                    document.getElementById("valorFinal").value = `R$ ${valorFinal.toFixed(2)}`;
+                    document.getElementById("valorFinal").value = "R$ ".concat(valorFinal.toFixed(2));
                     document.getElementById("calculatedValue").value = valorFinal.toFixed(2);
+
+
+                    console.log("Valor final atualizado: ", valorFinal.toFixed(2));
                 } else {
                     document.getElementById("valorFinal").value = "Período inválido";
                     document.getElementById("calculatedValue").value = "";
@@ -62,8 +64,6 @@
                 document.getElementById("calculatedValue").value = "";
             }
         }
-
-
     </script>
 </head>
 <body onload="hideMessage()">
