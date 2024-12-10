@@ -55,3 +55,4 @@
     <script src="static/scripts/toggleForms.js"></script> <!-- Chama o arquivo JS externo -->
 </body>
 </html>
+
