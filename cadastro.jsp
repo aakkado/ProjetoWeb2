@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%
+    // Verifica se o usuário está logado e se é admin
+    String userRole = (String) session.getAttribute("role");
+    if (userRole == null || !userRole.equals("admin")) {
+        // Redireciona para a página de login ou exibe uma mensagem de acesso negado
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

@@ -1,6 +1,15 @@
 <%@ page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+    // Verifique o tipo de usuário na sessão
+    String tipoUsuario = (String) session.getAttribute("tipo_usuario");
+
+    if (tipoUsuario == null || !tipoUsuario.equals("admin")) {
+        // Redireciona para uma página de acesso negado ou login
+        response.sendRedirect("index.jsp");
+        return;
+    }
+
     String mensagem = request.getParameter("mensagem");
     String espaco_id = request.getParameter("espaco_id");
     Connection conexao = null;
