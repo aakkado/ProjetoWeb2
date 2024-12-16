@@ -49,7 +49,7 @@
                 <input type="text" id="aluguel_id" name="aluguel_id" placeholder="Digite o ID do aluguel" value="<%= aluguel_id != null ? aluguel_id : "" %>">
             </div>
             <button type="submit">Buscar</button>
-            <button type="button" onclick="window.location.href='cadastro.jsp'">Voltar para cadastro</button>
+            <button type="button" onclick="window.location.href='alugar.jsp'">Voltar para cadastro</button>
         </form>
         
         <% if (mensagem != null && !mensagem.isEmpty()) { %>
