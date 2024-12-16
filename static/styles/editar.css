@@ -21,17 +21,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 1000;
 }
 
+
 header img {
     max-width: 120px;
 }
 
-/* Estilo para o botão de Logout no cabeçalho, à esquerda */
+/* Botão de Logout */
 #logoutButton {
     background-color: transparent;
     color: white;
@@ -42,7 +43,13 @@ header img {
     font-weight: 500;
     position: absolute;
     left: 20px;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
+    width: auto;
+}
+
+button #logoutButton {
+    position: relative;
+    left: 20px;
 }
 
 #logoutButton:hover {
@@ -50,30 +57,33 @@ header img {
 }
 
 main {
-    background-color: #ffffff;
+    width: 90%; /* Faz o contêiner ocupar 90% da largura da página */
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 120px auto 20px; /* Ajusta margens para evitar sobreposição */
     padding: 30px;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 500px;
-    margin: 120px 20px 20px; /* Ajuste para evitar sobreposição com o header fixo */
 }
 
+
 h1 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
     color: #132614;
     margin-bottom: 20px;
     text-align: center;
+    letter-spacing: 1px;
 }
 
 form div {
     margin-bottom: 20px;
 }
 
-/* Estilo para os botões de Editar Espaços e Cadastrar Espaço */
+/* Botões */
+button,
 #editSpacesButton,
-button[type="submit"] {
+.back-button {
     width: 100%;
     padding: 12px;
     background-color: #132614;
@@ -83,12 +93,13 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    transition: background-color 0.3s;
-    margin-bottom: 10px; /* Espaçamento entre os dois botões */
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* Espaçamento entre botões */
 }
 
+button:hover,
 #editSpacesButton:hover,
-button[type="submit"]:hover {
+.back-button:hover {
     background-color: #1a3b25;
 }
 
@@ -101,12 +112,12 @@ label {
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s ease;
 }
 
 input:focus {
@@ -114,13 +125,12 @@ input:focus {
     outline: none;
 }
 
-/* Estilo para o placeholder */
 input::placeholder {
     color: #aaa;
     font-style: italic;
 }
 
-/* Mensagem de sucesso */
+/* Mensagem de sucesso ou erro */
 #message {
     background-color: #4CAF50;
     color: white;
@@ -130,19 +140,98 @@ input::placeholder {
     margin-top: 15px;
     font-weight: 500;
     opacity: 0;
-    transition: opacity 1s ease;
+    animation: fadeIn 1s forwards, fadeOut 1s 3s forwards;
 }
 
-/* Mensagem de erro */
 #message.error {
     background-color: #f44336;
 }
 
-/* Classe oculta para quando a mensagem estiver invisível */
-.hidden {
-    display: none;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table td {
+    vertical-align: middle; /* Alinha o conteúdo verticalmente */
+    text-align: center; /* Centraliza o texto horizontalmente */
+}
+
+
+.action-buttons {
+    display: inline-flex; /* Alinha os botões lado a lado */
+    justify-content: center; /* Centraliza dentro da célula */
+    align-items: center; /* Alinha verticalmente */
+    gap: 60px; /* Aumenta o espaçamento entre os botões */
+}
+
+
+
+
+table td a {
+    display: inline-block;
+    padding: 5px 10px;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+
+table th {
+    background-color: #132614;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #e0f2f1;
+}
+
+table a {
+    color: #132614;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
     width: 100%;
     text-align: center;
@@ -150,7 +239,7 @@ footer {
     background-color: #132614;
     color: white;
     font-size: 14px;
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
