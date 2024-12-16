@@ -68,7 +68,7 @@
 </head>
 <body onload="hideMessage()">
     <header>
-        <button id="logoutButton" onclick="window.location.href='logout.jsp'">Logout</button>
+        <button id="logoutButton" onclick="window.location.href='index.jsp'">Logout</button>
         <img src="static/images/logoWithoutBackground.png" alt="Logo da ONG Natureza Viva">
     </header>
     <main>
